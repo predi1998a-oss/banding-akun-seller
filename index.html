@@ -261,6 +261,7 @@ input:focus {
     font-size: 14px;
     text-decoration: underline;
 }
+/* === TOMBOL TERANG (Bisa diklik / Aktif) === */
 .btn {
     width: 100%;
     padding: 13px;
@@ -270,15 +271,32 @@ input:focus {
     border: none;
     cursor: pointer;
     margin-bottom: 12px;
+
+    /* Warna Terang */
+    background-color: #007aff;  /* ← Latar belakang terang */
+    color: #ffffff;              /* ← Warna tulisan terang */
+    opacity: 1;                  /* ← Terang penuh */
 }
-.btn:active { transform: scale(0.98); }
+
+/* Saat tombol ditekan */
+.btn:active {
+    transform: scale(0.98);
+    opacity: 0.85;
+}
+
+/* === TOMBOL REDUP (Terkunci / Belum bisa diklik) === */
 .btn-disabled {
-    background-color: #e5e5e7 !important;
-    color: #86868b !important;
+    background-color: #e5e5e7 !important;  /* ← Latar belakang redup */
+    color: #86868b !important;              /* ← Tulisan warna abu redup */
+    opacity: 0.8 !important;                 /* ← Semakin kecil semakin redup */
     cursor: not-allowed;
 }
-.btn-hpemail { background-color: #007aff; color: #fff; }
-.btn-tiktok { background-color: #000; color: #fff; }
+
+/* Khusus tombol TikTok */
+.btn-tiktok {
+    background-color: #000000;  /* ← Warna terang tombol TikTok */
+    color: #ffffff;
+}
 .error-text {
     font-size: 13px;
     color: #ff3b30;
